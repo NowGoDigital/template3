@@ -1,1 +1,3598 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAVARA — Modern Indonesian Dining | Authentic Heritage, Modern Experience</title>
+    <meta name="description" content="SAVARA adalah restoran modern Indonesia yang menyajikan warisan kuliner Nusantara dengan sentuhan kontemporer. Reservasi sekarang.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --terra: #C1432E;
+            --terra-dark: #9E3324;
+            --terra-light: #E65C45;
+            --cream: #F5EFE6;
+            --cream-dark: #EAE0CE;
+            --warm-white: #FAF7F1;
+            --brown: #2C1810;
+            --brown-light: #4A2E1F;
+            --brown-dark: #1A0E08;
+            --sage: #8B9A7B;
+            --sage-dark: #6B7A5D;
+            --gold: #D4A574;
+            --gold-dark: #A67D4A;
+            --black: #0D0907;
+            --gray-100: #F7F4EE;
+            --gray-300: #D6CEBC;
+            --gray-500: #8B7E6D;
+            --gray-700: #4A3F33;
 
+            --shadow-sm: 0 2px 8px rgba(44,24,16,0.06);
+            --shadow-md: 0 10px 30px rgba(44,24,16,0.1);
+            --shadow-lg: 0 20px 50px rgba(44,24,16,0.15);
+            --shadow-xl: 0 30px 80px rgba(44,24,16,0.2);
+            --shadow-warm: 0 10px 40px rgba(193,67,46,0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-white);
+            color: var(--gray-700);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .serif { font-family: 'Playfair Display', serif; }
+        .italic-serif { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ===== TOP BAR ===== */
+        .sv-topbar {
+            background: var(--brown-dark);
+            color: rgba(245, 239, 230, 0.85);
+            padding: 11px 0;
+            font-size: 12.5px;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+        }
+
+        .sv-topbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sv-topbar-left { display: flex; gap: 24px; }
+        .sv-topbar-left span { display: flex; align-items: center; gap: 7px; }
+        .sv-topbar-left i { color: var(--gold); font-size: 11px; }
+
+        .sv-topbar-right { display: flex; gap: 14px; align-items: center; }
+
+        .sv-topbar-right a {
+            color: rgba(245,239,230,0.7);
+            text-decoration: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 12px;
+        }
+
+        .sv-topbar-right a:hover { background: var(--terra); color: white; }
+
+        .sv-lang {
+            display: flex;
+            gap: 3px;
+            padding: 3px 8px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 20px;
+            margin-left: 8px;
+        }
+
+        .sv-lang button {
+            background: transparent;
+            border: none;
+            color: rgba(245,239,230,0.5);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .sv-lang button.active { background: var(--gold); color: var(--brown); }
+
+        /* ===== NAVBAR ===== */
+        .sv-navbar {
+            background: var(--warm-white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s;
+            border-bottom: 1px solid rgba(44,24,16,0.06);
+        }
+
+        .sv-navbar.scrolled {
+            background: rgba(250, 247, 241, 0.97);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .sv-navbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 85px;
+        }
+
+        .sv-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .sv-logo-mark {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--brown);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 22px;
+            font-style: italic;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        .sv-logo-mark::before {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border: 1px dashed var(--gold);
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        .sv-logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--brown);
+            letter-spacing: 3px;
+            line-height: 1;
+        }
+
+        .sv-logo-text p {
+            font-size: 9.5px;
+            letter-spacing: 3px;
+            color: var(--terra);
+            text-transform: uppercase;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        .sv-nav-links {
+            display: flex;
+            gap: 38px;
+            list-style: none;
+        }
+
+        .sv-nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-size: 13.5px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .sv-nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--terra);
+            transition: width 0.3s;
+        }
+
+        .sv-nav-links a:hover { color: var(--terra); }
+        .sv-nav-links a:hover::after { width: 100%; }
+
+        .sv-nav-cta { display: flex; gap: 10px; align-items: center; }
+
+        .sv-btn {
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-family: inherit;
+        }
+
+        .sv-btn-primary {
+            background: var(--terra);
+            color: white;
+        }
+
+        .sv-btn-primary:hover {
+            background: var(--terra-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-warm);
+        }
+
+        .sv-btn-outline {
+            background: transparent;
+            color: var(--brown);
+            border: 1.5px solid var(--brown);
+        }
+
+        .sv-btn-outline:hover {
+            background: var(--brown);
+            color: var(--cream);
+        }
+
+        .sv-btn-dark {
+            background: var(--brown);
+            color: var(--gold);
+        }
+
+        .sv-btn-dark:hover {
+            background: var(--brown-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sv-btn-gold {
+            background: var(--gold);
+            color: var(--brown);
+        }
+
+        .sv-btn-gold:hover {
+            background: var(--gold-dark);
+            color: white;
+        }
+
+        .sv-btn-ghost {
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+
+        .sv-btn-ghost:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(212,165,116,0.08);
+        }
+
+        .sv-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--brown);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .sv-hero {
+            position: relative;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            background: var(--brown-dark);
+            overflow: hidden;
+            color: white;
+        }
+
+        .sv-hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(44,24,16,0.85) 0%, rgba(13,9,7,0.75) 100%),
+                radial-gradient(circle at 20% 30%, rgba(193,67,46,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212,165,116,0.25) 0%, transparent 50%),
+                linear-gradient(135deg, #3a1f12 0%, #1a0e08 100%);
+        }
+
+        .sv-hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.06;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 60px, var(--gold) 60px, var(--gold) 61px),
+                repeating-linear-gradient(-45deg, transparent, transparent 60px, var(--gold) 60px, var(--gold) 61px);
+            pointer-events: none;
+        }
+
+        .sv-hero-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 100px 40px 80px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sv-hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            background: rgba(212,165,116,0.12);
+            border: 1px solid rgba(212,165,116,0.3);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 28px;
+        }
+
+        .sv-hero-tag i { font-size: 10px; }
+
+        .sv-hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(44px, 6vw, 78px);
+            font-weight: 500;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .sv-hero-title em {
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 400;
+            position: relative;
+        }
+
+        .sv-hero-title em::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            width: 22px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .sv-hero-desc {
+            font-size: 17px;
+            color: rgba(245,239,230,0.8);
+            margin-bottom: 38px;
+            max-width: 520px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .sv-hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .sv-hero-meta {
+            display: flex;
+            gap: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(245,239,230,0.15);
+        }
+
+        .sv-hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .sv-hero-meta-item .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(212,165,116,0.12);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border: 1px solid rgba(212,165,116,0.25);
+        }
+
+        .sv-hero-meta-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .sv-hero-meta-item p {
+            font-size: 12px;
+            color: rgba(245,239,230,0.6);
+        }
+
+        /* Hero Visual */
+        .sv-hero-visual {
+            position: relative;
+            height: 600px;
+        }
+
+        .sv-hero-dish {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 460px;
+            height: 460px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 30% 30%, #d4824e 0%, #a85a2b 40%, #6b3418 80%, #3a1f12 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 180px;
+            color: rgba(245,239,230,0.3);
+            box-shadow:
+                0 40px 80px rgba(0,0,0,0.5),
+                inset 0 -20px 50px rgba(0,0,0,0.3),
+                inset 0 20px 30px rgba(255,255,255,0.1);
+            border: 8px solid var(--brown-dark);
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -54%) rotate(2deg); }
+        }
+
+        .sv-hero-badge {
+            position: absolute;
+            background: var(--warm-white);
+            padding: 16px 20px;
+            border-radius: 14px;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sv-hero-badge-1 {
+            top: 60px;
+            left: 20px;
+            animation: floatBadge 5s ease-in-out infinite;
+        }
+
+        .sv-hero-badge-2 {
+            bottom: 80px;
+            right: 30px;
+            animation: floatBadge 5s ease-in-out infinite 2.5s;
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .sv-hero-badge .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--terra);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .sv-hero-badge h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--brown);
+            line-height: 1;
+        }
+
+        .sv-hero-badge p {
+            font-size: 11px;
+            color: var(--gray-500);
+            margin-top: 2px;
+        }
+
+        .sv-hero-badge .stars {
+            color: var(--gold);
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+        /* ===== SECTION COMMON ===== */
+        .sv-section {
+            padding: 110px 0;
+            position: relative;
+        }
+
+        .sv-section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--terra);
+            margin-bottom: 18px;
+        }
+
+        .sv-section-tag::before {
+            content: '';
+            width: 36px;
+            height: 2px;
+            background: var(--terra);
+        }
+
+        .sv-section-tag.center { justify-content: center; }
+        .sv-section-tag.center::before,
+        .sv-section-tag.center::after {
+            content: '';
+            width: 36px;
+            height: 2px;
+            background: var(--terra);
+        }
+
+        .sv-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(34px, 4.5vw, 54px);
+            font-weight: 500;
+            color: var(--brown);
+            line-height: 1.15;
+            margin-bottom: 22px;
+            letter-spacing: -1px;
+        }
+
+        .sv-section-title em {
+            font-style: italic;
+            color: var(--terra);
+            font-weight: 400;
+        }
+
+        .sv-section-desc {
+            font-size: 16px;
+            color: var(--gray-500);
+            max-width: 640px;
+            line-height: 1.85;
+        }
+
+        /* ===== ABOUT / STORY ===== */
+        .sv-story { background: var(--warm-white); }
+
+        .sv-story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .sv-story-visual {
+            position: relative;
+            height: 640px;
+        }
+
+        .sv-story-img {
+            position: absolute;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .sv-story-img-1 {
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 68%;
+            background: linear-gradient(135deg, #8B4513, #5D2F0B);
+            color: var(--gold);
+        }
+
+        .sv-story-img-2 {
+            bottom: 0;
+            right: 0;
+            width: 65%;
+            height: 48%;
+            background: linear-gradient(135deg, var(--terra), var(--terra-dark));
+            color: var(--cream);
+            border: 10px solid var(--warm-white);
+        }
+
+        .sv-story-est {
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            background: var(--brown);
+            color: var(--gold);
+            padding: 24px 28px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            border: 2px solid var(--gold);
+        }
+
+        .sv-story-est .year {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .sv-story-est .lbl {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 6px;
+            color: var(--cream);
+        }
+
+        .sv-story-content .sv-section-desc {
+            margin-bottom: 24px;
+        }
+
+        .sv-story-signature {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-top: 28px;
+            margin-top: 28px;
+            border-top: 1px solid var(--gray-300);
+        }
+
+        .sv-signature-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--terra), var(--terra-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 3px solid var(--warm-white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .sv-signature-info .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--brown);
+        }
+
+        .sv-signature-info .role {
+            font-size: 12px;
+            color: var(--terra);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .sv-signature-script {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 32px;
+            color: var(--terra);
+            margin-left: auto;
+        }
+
+        .sv-story-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 36px;
+        }
+
+        .sv-story-stat {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--cream);
+            border-radius: 14px;
+            border: 1px solid var(--gray-300);
+        }
+
+        .sv-story-stat .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--terra);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .sv-story-stat .lbl {
+            font-size: 11px;
+            color: var(--gray-500);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* ===== FEATURED / WHY US ===== */
+        .sv-features {
+            background: var(--brown-dark);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sv-features::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(193,67,46,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(212,165,116,0.12) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .sv-features-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .sv-features .sv-section-title { color: var(--cream); }
+        .sv-features .sv-section-title em { color: var(--gold); }
+        .sv-features .sv-section-desc { color: rgba(245,239,230,0.7); }
+
+        .sv-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .sv-feature {
+            background: rgba(245,239,230,0.03);
+            border: 1px solid rgba(212,165,116,0.15);
+            border-radius: 18px;
+            padding: 36px 28px;
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .sv-feature:hover {
+            background: rgba(212,165,116,0.08);
+            border-color: var(--gold);
+            transform: translateY(-6px);
+        }
+
+        .sv-feature .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--terra);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 22px;
+            box-shadow: var(--shadow-warm);
+        }
+
+        .sv-feature h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 10px;
+        }
+
+        .sv-feature p {
+            font-size: 14px;
+            color: rgba(245,239,230,0.7);
+            line-height: 1.75;
+        }
+
+        /* ===== MENU ===== */
+        .sv-menu { background: var(--cream); }
+
+        .sv-menu-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .sv-menu-header .sv-section-desc {
+            margin: 0 auto;
+        }
+
+        .sv-menu-filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .sv-filter-btn {
+            padding: 11px 24px;
+            border-radius: 50px;
+            background: transparent;
+            border: 1.5px solid var(--gray-300);
+            color: var(--gray-700);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            letter-spacing: 0.5px;
+        }
+
+        .sv-filter-btn.active, .sv-filter-btn:hover {
+            background: var(--brown);
+            color: var(--gold);
+            border-color: var(--brown);
+        }
+
+        .sv-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .sv-menu-item {
+            background: var(--warm-white);
+            border-radius: 16px;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 90px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .sv-menu-item:hover {
+            border-color: var(--terra);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .sv-menu-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--terra), var(--terra-dark));
+            color: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            flex-shrink: 0;
+        }
+
+        .sv-menu-item:nth-child(2n) .sv-menu-img { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--brown); }
+        .sv-menu-item:nth-child(3n) .sv-menu-img { background: linear-gradient(135deg, var(--sage), var(--sage-dark)); color: white; }
+        .sv-menu-item:nth-child(4n) .sv-menu-img { background: linear-gradient(135deg, var(--brown), var(--brown-light)); color: var(--gold); }
+        .sv-menu-item:nth-child(5n) .sv-menu-img { background: linear-gradient(135deg, #d4824e, #a85a2b); color: var(--cream); }
+
+        .sv-menu-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--brown);
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .sv-menu-info .tags {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .sv-menu-info .tag {
+            font-size: 9.5px;
+            font-weight: 700;
+            padding: 3px 8px;
+            background: var(--cream);
+            color: var(--terra);
+            border-radius: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .sv-menu-info .tag.spicy { background: var(--terra); color: white; }
+        .sv-menu-info .tag.vegan { background: var(--sage); color: white; }
+        .sv-menu-info .tag.chef { background: var(--gold); color: var(--brown); }
+
+        .sv-menu-info p {
+            font-size: 13px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        .sv-menu-price {
+            text-align: right;
+            min-width: 110px;
+        }
+
+        .sv-menu-price .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--terra);
+        }
+
+        .sv-menu-price .price .k {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .sv-menu-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* ===== SIGNATURE DISHES ===== */
+        .sv-signature { background: var(--warm-white); }
+
+        .sv-signature-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .sv-signature-header .sv-section-desc { margin: 0 auto; }
+
+        .sv-signature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .sv-signature-card {
+            background: var(--cream);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .sv-signature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .sv-signature-img {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 110px;
+        }
+
+        .sv-signature-card:nth-child(1) .sv-signature-img { background: linear-gradient(135deg, #8B4513, #3a1f12); color: var(--gold); }
+        .sv-signature-card:nth-child(2) .sv-signature-img { background: linear-gradient(135deg, var(--terra), #6b2218); color: var(--gold); }
+        .sv-signature-card:nth-child(3) .sv-signature-img { background: linear-gradient(135deg, #2c5f3f, #1a3a24); color: var(--gold); }
+
+        .sv-signature-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .sv-signature-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--brown);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sv-signature-content {
+            padding: 28px;
+            background: var(--warm-white);
+        }
+
+        .sv-signature-content .rating {
+            color: var(--gold);
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .sv-signature-content .rating span {
+            color: var(--gray-500);
+            margin-left: 6px;
+            font-size: 12px;
+        }
+
+        .sv-signature-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .sv-signature-content p {
+            font-size: 13.5px;
+            color: var(--gray-500);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .sv-signature-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-300);
+        }
+
+        .sv-signature-foot .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--terra);
+        }
+
+        .sv-signature-foot .price small {
+            font-size: 13px;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        /* ===== CHEF ===== */
+        .sv-chef {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+        }
+
+        .sv-chef-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .sv-chef-visual {
+            position: relative;
+            height: 620px;
+        }
+
+        .sv-chef-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--brown), var(--brown-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 220px;
+            color: var(--gold);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sv-chef-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(212,165,116,0.2) 0%, transparent 60%);
+        }
+
+        .sv-chef-quote {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: var(--terra);
+            color: white;
+            padding: 28px 32px;
+            border-radius: 18px;
+            max-width: 320px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .sv-chef-quote .quote-icon {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            color: var(--gold);
+            line-height: 0.5;
+            margin-bottom: 10px;
+        }
+
+        .sv-chef-quote p {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 17px;
+            line-height: 1.5;
+            color: var(--cream);
+        }
+
+        .sv-chef-quote .author {
+            margin-top: 14px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-family: 'DM Sans', sans-serif;
+            font-style: normal;
+        }
+
+        .sv-chef-content .sv-section-desc {
+            margin-bottom: 24px;
+        }
+
+        .sv-chef-achievements {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .sv-achievement {
+            display: flex;
+            gap: 14px;
+            padding: 18px;
+            background: var(--warm-white);
+            border-radius: 12px;
+            border: 1px solid var(--gray-300);
+        }
+
+        .sv-achievement .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--brown);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .sv-achievement h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--brown);
+            margin-bottom: 3px;
+        }
+
+        .sv-achievement p {
+            font-size: 12.5px;
+            color: var(--gray-500);
+        }
+
+        /* ===== GALLERY ===== */
+        .sv-gallery {
+            background: var(--warm-white);
+        }
+
+        .sv-gallery-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .sv-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 220px 220px;
+            gap: 16px;
+        }
+
+        .sv-gallery-item {
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            transition: all 0.4s;
+        }
+
+        .sv-gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; background: linear-gradient(135deg, #8B4513, #3a1f12); color: var(--gold); font-size: 140px; }
+        .sv-gallery-item:nth-child(2) { background: linear-gradient(135deg, var(--terra), #6b2218); color: var(--cream); }
+        .sv-gallery-item:nth-child(3) { background: linear-gradient(135deg, var(--sage), #4a5f3d); color: var(--cream); }
+        .sv-gallery-item:nth-child(4) { grid-row: span 2; background: linear-gradient(135deg, var(--brown), var(--brown-dark)); color: var(--gold); font-size: 100px; }
+        .sv-gallery-item:nth-child(5) { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--brown); }
+        .sv-gallery-item:nth-child(6) { background: linear-gradient(135deg, #d4824e, #a85a2b); color: var(--cream); }
+
+        .sv-gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .sv-gallery-item:hover::after { opacity: 1; }
+
+        .sv-gallery-item .overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: white;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s;
+        }
+
+        .sv-gallery-item:hover .overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sv-gallery-item .overlay h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .sv-gallery-item .overlay p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .sv-gallery-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ===== RESERVATION ===== */
+        .sv-reservation {
+            background:
+                linear-gradient(135deg, rgba(44,24,16,0.92) 0%, rgba(13,9,7,0.95) 100%),
+                radial-gradient(circle at 30% 30%, rgba(193,67,46,0.2) 0%, transparent 50%),
+                var(--brown-dark);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sv-reservation::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 80px, rgba(212,165,116,0.04) 80px, rgba(212,165,116,0.04) 81px);
+            pointer-events: none;
+        }
+
+        .sv-reservation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 70px;
+            position: relative;
+            z-index: 2;
+            align-items: center;
+        }
+
+        .sv-reservation-info .sv-section-tag { color: var(--gold); }
+        .sv-reservation-info .sv-section-tag::before { background: var(--gold); }
+        .sv-reservation-info .sv-section-title { color: var(--cream); }
+        .sv-reservation-info .sv-section-title em { color: var(--gold); }
+        .sv-reservation-info .sv-section-desc { color: rgba(245,239,230,0.75); margin-bottom: 32px; }
+
+        .sv-reservation-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+
+        .sv-reservation-info-item {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .sv-reservation-info-item .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(212,165,116,0.1);
+            border: 1px solid rgba(212,165,116,0.3);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .sv-reservation-info-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 2px;
+        }
+
+        .sv-reservation-info-item p {
+            font-size: 13px;
+            color: rgba(245,239,230,0.65);
+        }
+
+        .sv-reservation-form {
+            background: rgba(245,239,230,0.03);
+            border: 1px solid rgba(212,165,116,0.2);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+        }
+
+        .sv-reservation-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        .sv-reservation-form > p {
+            font-size: 13.5px;
+            color: rgba(245,239,230,0.65);
+            margin-bottom: 28px;
+        }
+
+        .sv-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .sv-form-field { margin-bottom: 14px; }
+        .sv-form-field.full { grid-column: 1 / -1; }
+
+        .sv-form-field label {
+            display: block;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .sv-form-field input,
+        .sv-form-field select,
+        .sv-form-field textarea {
+            width: 100%;
+            padding: 13px 16px;
+            background: rgba(245,239,230,0.05);
+            border: 1.5px solid rgba(212,165,116,0.25);
+            border-radius: 10px;
+            color: var(--cream);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .sv-form-field input::placeholder,
+        .sv-form-field textarea::placeholder { color: rgba(245,239,230,0.35); }
+
+        .sv-form-field input:focus,
+        .sv-form-field select:focus,
+        .sv-form-field textarea:focus {
+            border-color: var(--gold);
+            background: rgba(212,165,116,0.06);
+            box-shadow: 0 0 0 3px rgba(212,165,116,0.1);
+        }
+
+        .sv-form-field select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23D4A574' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        .sv-form-field select option {
+            background: var(--brown);
+            color: var(--cream);
+        }
+
+        .sv-form-field textarea { resize: vertical; min-height: 90px; }
+
+        .sv-reservation-form .sv-btn {
+            width: 100%;
+            justify-content: center;
+            padding: 15px;
+            margin-top: 8px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .sv-testimonials { background: var(--cream); }
+
+        .sv-testimonials-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .sv-testimonials-header .sv-section-desc { margin: 0 auto; }
+
+        .sv-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .sv-testimonial {
+            background: var(--warm-white);
+            border-radius: 18px;
+            padding: 32px;
+            border: 1px solid var(--gray-300);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .sv-testimonial:hover {
+            border-color: var(--terra);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sv-testimonial .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 70px;
+            color: var(--terra);
+            line-height: 0.5;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        .sv-testimonial .stars {
+            color: var(--gold);
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .sv-testimonial .text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-style: italic;
+            color: var(--brown);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .sv-testimonial-foot {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-top: 18px;
+            border-top: 1px solid var(--gray-300);
+        }
+
+        .sv-testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--terra), var(--terra-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+        }
+
+        .sv-testimonial:nth-child(2) .sv-testimonial-avatar { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--brown); }
+        .sv-testimonial:nth-child(3) .sv-testimonial-avatar { background: linear-gradient(135deg, var(--sage), var(--sage-dark)); color: white; }
+
+        .sv-testimonial-foot h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 2px;
+        }
+
+        .sv-testimonial-foot p {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        /* ===== EVENTS ===== */
+        .sv-events { background: var(--warm-white); }
+
+        .sv-events-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .sv-events-header .sv-section-desc { margin: 0 auto; }
+
+        .sv-events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .sv-event-card {
+            background: var(--cream);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .sv-event-card:hover {
+            border-color: var(--terra);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sv-event-img {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .sv-event-card:nth-child(1) .sv-event-img { background: linear-gradient(135deg, var(--terra), #6b2218); color: var(--gold); }
+        .sv-event-card:nth-child(2) .sv-event-img { background: linear-gradient(135deg, var(--brown), var(--brown-dark)); color: var(--gold); }
+        .sv-event-card:nth-child(3) .sv-event-img { background: linear-gradient(135deg, var(--sage), #4a5f3d); color: var(--gold); }
+
+        .sv-event-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.5) 100%);
+        }
+
+        .sv-event-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--brown);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .sv-event-capacity {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sv-event-content {
+            padding: 26px;
+        }
+
+        .sv-event-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 10px;
+        }
+
+        .sv-event-content p {
+            font-size: 13.5px;
+            color: var(--gray-500);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .sv-event-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .sv-event-features span {
+            font-size: 11px;
+            padding: 5px 10px;
+            background: var(--warm-white);
+            color: var(--gray-700);
+            border-radius: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sv-event-features span i { color: var(--terra); font-size: 10px; }
+
+        .sv-event-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 18px;
+            border-top: 1px solid var(--gray-300);
+        }
+
+        .sv-event-foot .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--terra);
+        }
+
+        .sv-event-foot .price small {
+            font-size: 12px;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        /* ===== BLOG ===== */
+        .sv-blog { background: var(--cream); }
+
+        .sv-blog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 50px;
+        }
+
+        .sv-blog-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 24px;
+        }
+
+        .sv-blog-card {
+            background: var(--warm-white);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--gray-300);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .sv-blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--terra);
+        }
+
+        .sv-blog-img {
+            height: 220px;
+            background: linear-gradient(135deg, var(--terra), #6b2218);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--gold);
+            overflow: hidden;
+        }
+
+        .sv-blog-card.featured .sv-blog-img { height: 340px; font-size: 120px; }
+
+        .sv-blog-card:nth-child(2) .sv-blog-img { background: linear-gradient(135deg, var(--brown), var(--brown-dark)); color: var(--gold); }
+        .sv-blog-card:nth-child(3) .sv-blog-img { background: linear-gradient(135deg, var(--sage), #4a5f3d); color: var(--cream); }
+
+        .sv-blog-category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--cream);
+            color: var(--terra);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .sv-blog-content {
+            padding: 26px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sv-blog-meta {
+            display: flex;
+            gap: 14px;
+            font-size: 12px;
+            color: var(--gray-500);
+            margin-bottom: 12px;
+        }
+
+        .sv-blog-meta i { color: var(--terra); margin-right: 5px; }
+
+        .sv-blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .sv-blog-card.featured h3 { font-size: 26px; }
+
+        .sv-blog-content p {
+            font-size: 13.5px;
+            color: var(--gray-500);
+            line-height: 1.7;
+            margin-bottom: 18px;
+            flex: 1;
+        }
+
+        .sv-blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--terra);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: gap 0.3s;
+        }
+
+        .sv-blog-link:hover { gap: 14px; }
+
+        /* ===== LOCATION ===== */
+        .sv-location { background: var(--warm-white); }
+
+        .sv-location-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sv-location-map {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 480px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            background: linear-gradient(135deg, #e8dcc4, #d4c4a0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gray-300);
+        }
+
+        .sv-map-placeholder {
+            text-align: center;
+            color: var(--brown);
+        }
+
+        .sv-map-placeholder i {
+            font-size: 80px;
+            color: var(--terra);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .sv-map-placeholder h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .sv-map-placeholder p {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+
+        .sv-location-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sv-location-card {
+            background: var(--cream);
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid var(--gray-300);
+            transition: all 0.3s;
+        }
+
+        .sv-location-card:hover {
+            border-color: var(--terra);
+            transform: translateX(5px);
+        }
+
+        .sv-location-card .icon-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .sv-location-card .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--brown);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .sv-location-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--brown);
+        }
+
+        .sv-location-card p {
+            font-size: 14px;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        .sv-hours-grid {
+            display: grid;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .sv-hours-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13.5px;
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--gray-300);
+        }
+
+        .sv-hours-row:last-child { border-bottom: none; }
+
+        .sv-hours-row .day { color: var(--gray-700); font-weight: 500; }
+        .sv-hours-row .time { color: var(--brown); font-weight: 600; }
+        .sv-hours-row.closed .time { color: var(--terra); }
+
+        /* ===== NEWSLETTER CTA ===== */
+        .sv-newsletter {
+            background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sv-newsletter::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255,255,255,0.03) 60px, rgba(255,255,255,0.03) 61px);
+        }
+
+        .sv-newsletter-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .sv-newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: 500;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .sv-newsletter h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .sv-newsletter p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .sv-newsletter-form {
+            display: flex;
+            max-width: 520px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 50px;
+            padding: 6px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sv-newsletter-form input {
+            flex: 1;
+            padding: 14px 22px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: var(--brown);
+            font-family: inherit;
+        }
+
+        .sv-newsletter-form button {
+            padding: 14px 28px;
+            background: var(--brown);
+            color: var(--gold);
+            border: none;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .sv-newsletter-form button:hover { background: var(--brown-dark); }
+
+        /* ===== FOOTER ===== */
+        .sv-footer {
+            background: var(--brown-dark);
+            color: rgba(245,239,230,0.7);
+            padding: 80px 0 0;
+        }
+
+        .sv-footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .sv-footer-brand .sv-logo-text h1 { color: var(--cream); }
+        .sv-footer-brand .sv-logo-text p { color: var(--gold); }
+
+        .sv-footer-brand > p {
+            font-size: 14px;
+            margin-top: 24px;
+            line-height: 1.8;
+            color: rgba(245,239,230,0.6);
+        }
+
+        .sv-footer-socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .sv-footer-social {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(245,239,230,0.05);
+            border: 1px solid rgba(245,239,230,0.1);
+            color: rgba(245,239,230,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .sv-footer-social:hover {
+            background: var(--terra);
+            color: white;
+            border-color: var(--terra);
+            transform: translateY(-3px);
+        }
+
+        .sv-footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 22px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .sv-footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--terra);
+        }
+
+        .sv-footer-col ul { list-style: none; }
+        .sv-footer-col ul li { margin-bottom: 12px; }
+
+        .sv-footer-col ul li a {
+            color: rgba(245,239,230,0.6);
+            text-decoration: none;
+            font-size: 13.5px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sv-footer-col ul li a:hover {
+            color: var(--gold);
+            padding-left: 4px;
+        }
+
+        .sv-footer-col ul li a i {
+            font-size: 10px;
+            color: var(--terra);
+        }
+
+        .sv-footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 13.5px;
+        }
+
+        .sv-footer-contact-item i {
+            color: var(--gold);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .sv-footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 40px;
+            border-top: 1px solid rgba(245,239,230,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 12.5px;
+        }
+
+        .sv-footer-bottom p { color: rgba(245,239,230,0.5); }
+        .sv-footer-bottom a { color: var(--gold); text-decoration: none; }
+
+        .sv-footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .sv-footer-bottom-links a {
+            color: rgba(245,239,230,0.5);
+            transition: color 0.3s;
+        }
+
+        .sv-footer-bottom-links a:hover { color: var(--gold); }
+
+        /* ===== FLOATING ===== */
+        .sv-wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+        }
+
+        .sv-wa-float:hover {
+            transform: scale(1.1) translateY(-3px);
+        }
+
+        .sv-back-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--brown);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            border: 1.5px solid var(--gold);
+        }
+
+        .sv-back-top.visible { opacity: 1; visibility: visible; }
+        .sv-back-top:hover { background: var(--terra); border-color: var(--terra); color: white; }
+
+        /* ===== REVEAL ===== */
+        .sv-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sv-reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .sv-reveal-delay-1 { transition-delay: 0.1s; }
+        .sv-reveal-delay-2 { transition-delay: 0.2s; }
+        .sv-reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .sv-hero-content { grid-template-columns: 1fr; text-align: center; }
+            .sv-hero-desc { margin: 0 auto 38px; }
+            .sv-hero-actions { justify-content: center; }
+            .sv-hero-meta { justify-content: center; flex-wrap: wrap; }
+            .sv-hero-visual { height: 480px; }
+            .sv-hero-dish { width: 360px; height: 360px; font-size: 140px; }
+            .sv-story-grid { grid-template-columns: 1fr; gap: 60px; }
+            .sv-story-visual { height: 500px; max-width: 500px; margin: 0 auto; }
+            .sv-features-grid { grid-template-columns: repeat(2, 1fr); }
+            .sv-menu-grid { grid-template-columns: 1fr; }
+            .sv-signature-grid { grid-template-columns: 1fr; }
+            .sv-chef-grid { grid-template-columns: 1fr; gap: 60px; }
+            .sv-chef-visual { height: 500px; }
+            .sv-gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 200px); }
+            .sv-gallery-item:nth-child(1) { grid-column: span 2; }
+            .sv-gallery-item:nth-child(4) { grid-row: span 1; }
+            .sv-reservation-grid { grid-template-columns: 1fr; gap: 50px; }
+            .sv-testimonials-grid { grid-template-columns: 1fr; }
+            .sv-events-grid { grid-template-columns: 1fr; }
+            .sv-blog-grid { grid-template-columns: 1fr; }
+            .sv-location-grid { grid-template-columns: 1fr; }
+            .sv-footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .sv-topbar { display: none; }
+            .sv-nav-links { display: none; }
+            .sv-menu-toggle { display: block; }
+            .sv-container { padding: 0 20px; }
+            .sv-section { padding: 80px 0; }
+            .sv-hero-visual { display: none; }
+            .sv-hero-title em::before { display: none; }
+            .sv-features-grid { grid-template-columns: 1fr; }
+            .sv-story-stats { grid-template-columns: 1fr; }
+            .sv-chef-achievements { grid-template-columns: 1fr; }
+            .sv-form-row { grid-template-columns: 1fr; }
+            .sv-reservation-form { padding: 28px 20px; }
+            .sv-blog-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .sv-footer-grid { grid-template-columns: 1fr; gap: 36px; }
+            .sv-footer-bottom { flex-direction: column; text-align: center; }
+            .sv-gallery-grid { grid-template-columns: 1fr; grid-template-rows: repeat(6, 180px); }
+            .sv-gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+        }
+
+        /* Mobile Menu */
+        .sv-mobile-menu {
+            position: fixed;
+            top: 85px;
+            left: 0;
+            right: 0;
+            background: var(--warm-white);
+            box-shadow: var(--shadow-lg);
+            padding: 24px;
+            transform: translateY(-120%);
+            transition: transform 0.4s;
+            z-index: 999;
+            border-bottom: 3px solid var(--terra);
+        }
+
+        .sv-mobile-menu.active { transform: translateY(0); }
+
+        .sv-mobile-menu ul { list-style: none; }
+        .sv-mobile-menu ul li { padding: 14px 0; border-bottom: 1px solid var(--gray-300); }
+        .sv-mobile-menu ul li:last-child { border-bottom: none; }
+        .sv-mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--brown);
+            font-size: 15px;
+            font-weight: 600;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="sv-topbar">
+        <div class="sv-topbar-inner">
+            <div class="sv-topbar-left">
+                <span><i class="fas fa-map-marker-alt"></i> Jl. Kemang Raya No. 88, Jakarta Selatan</span>
+                <span><i class="far fa-clock"></i> Buka: 11:00 - 23:00 WIB</span>
+                <span><i class="fas fa-phone"></i> +62 21 7890 1234</span>
+            </div>
+            <div class="sv-topbar-right">
+                <a href="https://instagram.com/savara.id" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@savaraid" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://facebook.com/savaraid" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <div class="sv-lang">
+                    <button class="active">ID</button>
+                    <button>EN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="sv-navbar" id="svNavbar">
+        <div class="sv-navbar-inner">
+            <a href="#home" class="sv-logo">
+                <div class="sv-logo-mark">S</div>
+                <div class="sv-logo-text">
+                    <h1>SAVARA</h1>
+                    <p>Indonesian Dining</p>
+                </div>
+            </a>
+
+            <ul class="sv-nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#story">Cerita Kami</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#chef">Chef</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#location">Lokasi</a></li>
+            </ul>
+
+            <div class="sv-nav-cta">
+                <a href="#menu" class="sv-btn sv-btn-outline" style="padding: 11px 22px;">Lihat Menu</a>
+                <a href="#reservation" class="sv-btn sv-btn-primary">Reservasi <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <button class="sv-menu-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="sv-mobile-menu" id="svMobileMenu">
+        <ul>
+            <li><a href="#home" onclick="toggleMobileMenu()">Beranda</a></li>
+            <li><a href="#story" onclick="toggleMobileMenu()">Cerita Kami</a></li>
+            <li><a href="#menu" onclick="toggleMobileMenu()">Menu</a></li>
+            <li><a href="#signature" onclick="toggleMobileMenu()">Signature Dishes</a></li>
+            <li><a href="#chef" onclick="toggleMobileMenu()">Chef Kami</a></li>
+            <li><a href="#gallery" onclick="toggleMobileMenu()">Galeri</a></li>
+            <li><a href="#events" onclick="toggleMobileMenu()">Private Events</a></li>
+            <li><a href="#blog" onclick="toggleMobileMenu()">Blog</a></li>
+            <li><a href="#location" onclick="toggleMobileMenu()">Lokasi</a></li>
+            <li><a href="#reservation" onclick="toggleMobileMenu()" style="color: var(--terra); font-weight: 700;">Reservasi Sekarang</a></li>
+        </ul>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="sv-hero" id="home">
+        <div class="sv-hero-bg"></div>
+        <div class="sv-hero-pattern"></div>
+        <div class="sv-hero-content">
+            <div class="sv-hero-text">
+                <div class="sv-hero-tag">
+                    <i class="fas fa-utensils"></i>
+                    Modern Indonesian Cuisine · Est. 2015
+                </div>
+                <h1 class="sv-hero-title">
+                    Warisan Rasa,<br>
+                    <em>Penyajian Modern</em>
+                </h1>
+                <p class="sv-hero-desc">
+                    Selamat datang di SAVARA — tempat di mana cita rasa otentik Nusantara bertemu dengan teknik kuliner kontemporer. Setiap hidangan adalah perjalanan melalui kekayaan rempah Indonesia, diracik dengan penuh cinta oleh chef berpengalaman.
+                </p>
+                <div class="sv-hero-actions">
+                    <a href="#reservation" class="sv-btn sv-btn-primary" style="padding: 16px 32px;">
+                        <i class="fas fa-calendar-check"></i> Reservasi Meja
+                    </a>
+                    <a href="#menu" class="sv-btn sv-btn-ghost" style="padding: 16px 32px;">
+                        <i class="fas fa-book-open"></i> Jelajahi Menu
+                    </a>
+                </div>
+                <div class="sv-hero-meta">
+                    <div class="sv-hero-meta-item">
+                        <div class="icon"><i class="fas fa-star"></i></div>
+                        <div>
+                            <h4>4.9/5 Rating</h4>
+                            <p>1,200+ Reviews</p>
+                        </div>
+                    </div>
+                    <div class="sv-hero-meta-item">
+                        <div class="icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h4>Michelin Guide</h4>
+                            <p>2024 Recommended</p>
+                        </div>
+                    </div>
+                    <div class="sv-hero-meta-item">
+                        <div class="icon"><i class="fas fa-leaf"></i></div>
+                        <div>
+                            <h4>Farm-to-Table</h4>
+                            <p>100% Bahan Lokal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sv-hero-visual">
+                <div class="sv-hero-dish">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="sv-hero-badge sv-hero-badge-1">
+                    <div class="icon"><i class="fas fa-fire"></i></div>
+                    <div>
+                        <h4>Rendang Wagyu</h4>
+                        <p>Signature Dish</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <div class="sv-hero-badge sv-hero-badge-2">
+                    <div class="icon" style="background: var(--gold); color: var(--brown);"><i class="fas fa-mug-hot"></i></div>
+                    <div>
+                        <h4>100+ Menu</h4>
+                        <p>Indonesian & Fusion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STORY ===== -->
+    <section class="sv-section sv-story" id="story">
+        <div class="container">
+            <div class="sv-story-grid">
+                <div class="sv-story-visual sv-reveal">
+                    <div class="sv-story-img sv-story-img-1">
+                        <i class="fas fa-mortar-pestle"></i>
+                    </div>
+                    <div class="sv-story-img sv-story-img-2">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="sv-story-est">
+                        <div class="year">2015</div>
+                        <div class="lbl">Established</div>
+                    </div>
+                </div>
+
+                <div class="sv-story-content sv-reveal">
+                    <div class="sv-section-tag">Cerita Kami</div>
+                    <h2 class="sv-section-title">
+                        Dari Dapur Nenek,<br>
+                        ke <em>Meja Anda</em>
+                    </h2>
+                    <p class="sv-section-desc">
+                        SAVARA lahir dari kerinduan akan cita rasa masakan rumahan yang otentik. Berawal dari resep turun-temurun keluarga di Solo, kami membawa warisan kuliner Nusantara ke panggung modern — tanpa kehilangan jati diri.
+                    </p>
+                    <p class="sv-section-desc">
+                        Nama <strong>"Savara"</strong> terinspirasi dari kata <em>"savor"</em> (menikmati) dan <em>"vara"</em> (anugerah). Setiap hidangan adalah anugerah rasa yang layak dinikmati perlahan, dengan penuh rasa syukur.
+                    </p>
+
+                    <div class="sv-story-signature">
+                        <div class="sv-signature-avatar"><i class="fas fa-user-tie"></i></div>
+                        <div class="sv-signature-info">
+                            <div class="name">Chef Arya Wijaya</div>
+                            <div class="role">Founder & Head Chef</div>
+                        </div>
+                        <div class="sv-signature-script">Arya</div>
+                    </div>
+
+                    <div class="sv-story-stats">
+                        <div class="sv-story-stat">
+                            <div class="num" data-count="10">0</div>
+                            <div class="lbl">Tahun Berkarya</div>
+                        </div>
+                        <div class="sv-story-stat">
+                            <div class="num" data-count="100">0</div>
+                            <div class="lbl">Menu Spesial</div>
+                        </div>
+                        <div class="sv-story-stat">
+                            <div class="num" data-count="50">0</div>
+                            <div class="lbl">Ribu+ Tamu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="sv-section sv-features">
+        <div class="container sv-features-inner">
+            <div style="text-align: center;" class="sv-reveal">
+                <div class="sv-section-tag center">Mengapa SAVARA</div>
+                <h2 class="sv-section-title">Pengalaman <em>Kuliner</em> yang Tak Terlupakan</h2>
+                <p class="sv-section-desc" style="margin: 0 auto;">
+                    Lebih dari sekadar restoran — kami menghadirkan perjalanan rasa, budaya, dan kehangatan dalam setiap kunjungan.
+                </p>
+            </div>
+
+            <div class="sv-features-grid">
+                <div class="sv-feature sv-reveal sv-reveal-delay-1">
+                    <div class="icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Bahan Lokal Premium</h3>
+                    <p>Kami bekerjasama dengan 40+ petani lokal dari Aceh hingga Papua untuk bahan-bahan terbaik dan segar setiap hari.</p>
+                </div>
+                <div class="sv-feature sv-reveal sv-reveal-delay-2">
+                    <div class="icon"><i class="fas fa-mortar-pestle"></i></div>
+                    <h3>Resep Otentik</h3>
+                    <p>Warisan resep dari 12 daerah Indonesia, diolah dengan teknik modern namun tetap menjaga cita rasa asli.</p>
+                </div>
+                <div class="sv-feature sv-reveal sv-reveal-delay-3">
+                    <div class="icon"><i class="fas fa-wine-glass"></i></div>
+                    <h3>Ambiance Hangat</h3>
+                    <p>Interior bergaya Indonesian contemporary dengan sentuhan kayu jati, batik, dan pencahayaan intim.</p>
+                </div>
+                <div class="sv-feature sv-reveal sv-reveal-delay-3">
+                    <div class="icon"><i class="fas fa-concierge-bell"></i></div>
+                    <h3>Pelayanan Prima</h3>
+                    <p>Tim pelayanan profesional yang terlatih untuk memastikan setiap momen makan Anda istimewa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MENU ===== -->
+    <section class="sv-section sv-menu" id="menu">
+        <div class="container">
+            <div class="sv-menu-header sv-reveal">
+                <div class="sv-section-tag center">Menu Kami</div>
+                <h2 class="sv-section-title">Cita Rasa <em>Nusantara</em> di Setiap Suapan</h2>
+                <p class="sv-section-desc">
+                    Jelajahi lebih dari 100 menu pilihan — dari appetizer hingga dessert, dari masakan tradisional hingga kreasi fusion modern.
+                </p>
+            </div>
+
+            <div class="sv-menu-filters sv-reveal">
+                <button class="sv-filter-btn active" data-filter="all">Semua</button>
+                <button class="sv-filter-btn" data-filter="appetizer">Appetizer</button>
+                <button class="sv-filter-btn" data-filter="main">Main Course</button>
+                <button class="sv-filter-btn" data-filter="dessert">Dessert</button>
+                <button class="sv-filter-btn" data-filter="drink">Minuman</button>
+                <button class="sv-filter-btn" data-filter="special">Chef Special</button>
+            </div>
+
+            <div class="sv-menu-grid" id="svMenuGrid">
+                <!-- Appetizers -->
+                <div class="sv-menu-item sv-reveal" data-category="appetizer">
+                    <div class="sv-menu-img"><i class="fas fa-pepper-hot"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Sate Lilit Bali</h3>
+                        <div class="tags">
+                            <span class="tag chef">Chef Pick</span>
+                            <span class="tag">Seafood</span>
+                        </div>
+                        <p>Sate ikan khas Bali dengan bumbu rempah, disajikan di atas daun pisang & sambal matah.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">85<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <div class="sv-menu-item sv-reveal" data-category="appetizer">
+                    <div class="sv-menu-img"><i class="fas fa-drumstick-bite"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Tahu Telur Surabaya</h3>
+                        <div class="tags">
+                            <span class="tag">Vegetarian</span>
+                        </div>
+                        <p>Tahu goreng renyah dengan telur, saus kacang manis, dan kerupuk udang.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">55<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <!-- Main Course -->
+                <div class="sv-menu-item sv-reveal" data-category="main special">
+                    <div class="sv-menu-img"><i class="fas fa-fire"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Rendang Wagyu A5</h3>
+                        <div class="tags">
+                            <span class="tag chef">Signature</span>
+                            <span class="tag spicy">Pedas</span>
+                        </div>
+                        <p>Wagyu A5 dimasak 8 jam dengan rempah Minang, disajikan dengan nasi pulen & daun singkong.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">385<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <div class="sv-menu-item sv-reveal" data-category="main">
+                    <div class="sv-menu-img"><i class="fas fa-fish"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Ikan Bakar Jimbaran</h3>
+                        <div class="tags">
+                            <span class="tag">Seafood</span>
+                        </div>
+                        <p>Kakap merah bakar bumbu Bali dengan sambal plecing dan plecing kangkung.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">165<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <div class="sv-menu-item sv-reveal" data-category="main">
+                    <div class="sv-menu-img"><i class="fas fa-drumstick-bite"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Ayam Betutu Khas Gilimanuk</h3>
+                        <div class="tags">
+                            <span class="tag spicy">Pedas</span>
+                        </div>
+                        <p>Ayam kampung utuh dibalut base genep, dipanggang daun pisang selama 6 jam.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">225<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <div class="sv-menu-item sv-reveal" data-category="main">
+                    <div class="sv-menu-img"><i class="fas fa-bowl-rice"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Nasi Goreng SAVARA</h3>
+                        <div class="tags">
+                            <span class="tag chef">Chef Pick</span>
+                        </div>
+                        <p>Nasi goreng spesial dengan udang galah, telur mata sapi, sate ayam, & kerupuk udang.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">125<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="sv-menu-item sv-reveal" data-category="dessert">
+                    <div class="sv-menu-img"><i class="fas fa-ice-cream"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Es Cendol Durian</h3>
+                        <div class="tags">
+                            <span class="tag">Sweet</span>
+                        </div>
+                        <p>Cendol pandan, durian Monthong premium, santan, dan gula aren asli Banten.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">75<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <div class="sv-menu-item sv-reveal" data-category="dessert">
+                    <div class="sv-menu-img"><i class="fas fa-cookie"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Klepon Lava Cake</h3>
+                        <div class="tags">
+                            <span class="tag chef">Signature</span>
+                        </div>
+                        <p>Chocolate lava cake dengan rasa klepon — pandan, kelapa, dan gula Jawa cair di dalam.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">85<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <!-- Drinks -->
+                <div class="sv-menu-item sv-reveal" data-category="drink">
+                    <div class="sv-menu-img"><i class="fas fa-mug-hot"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Jamu SAVARA Signature</h3>
+                        <div class="tags">
+                            <span class="tag vegan">Herbal</span>
+                        </div>
+                        <p>Racikan kunyit, jahe, temulawak, madu hutan Sumbawa, dan jeruk nipis.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">45<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <div class="sv-menu-item sv-reveal" data-category="drink">
+                    <div class="sv-menu-img"><i class="fas fa-wine-glass"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Es Kopi Gayo Latte</h3>
+                        <div class="tags">
+                            <span class="tag">Coffee</span>
+                        </div>
+                        <p>Single origin Gayo Aceh, susu segar, gula aren, dan foam art signature.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">48<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <!-- Chef Special -->
+                <div class="sv-menu-item sv-reveal" data-category="special main">
+                    <div class="sv-menu-img"><i class="fas fa-crown"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Tumpeng Mini SAVARA</h3>
+                        <div class="tags">
+                            <span class="tag chef">Exclusive</span>
+                        </div>
+                        <p>Set tumpeng untuk 2 orang: nasi kuning, 7 lauk pilihan, urap, dan sambal.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">450<span class="k">K</span></div>
+                    </div>
+                </div>
+
+                <div class="sv-menu-item sv-reveal" data-category="special">
+                    <div class="sv-menu-img"><i class="fas fa-star"></i></div>
+                    <div class="sv-menu-info">
+                        <h3>Tasting Menu Nusantara</h3>
+                        <div class="tags">
+                            <span class="tag chef">7 Course</span>
+                        </div>
+                        <p>Pengalaman kuliner 7 course dari 7 daerah — Aceh, Padang, Sunda, Bali, Jogja, Manado, Papua.</p>
+                    </div>
+                    <div class="sv-menu-price">
+                        <div class="price">750<span class="k">K</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sv-menu-cta sv-reveal">
+                <a href="#reservation" class="sv-btn sv-btn-primary">
+                    <i class="fas fa-calendar-check"></i> Reservasi & Pesan Sekarang
+                </a>
+                <a href="#" class="sv-btn sv-btn-outline" style="margin-left: 10px;">
+                    <i class="fas fa-download"></i> Download Full Menu (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SIGNATURE DISHES ===== -->
+    <section class="sv-section sv-signature" id="signature">
+        <div class="container">
+            <div class="sv-signature-header sv-reveal">
+                <div class="sv-section-tag center">Signature Dishes</div>
+                <h2 class="sv-section-title">Hidangan <em>Ikonik</em> Kami</h2>
+                <p class="sv-section-desc">
+                    Tiga hidangan kebanggaan SAVARA yang menjadi favorit para tamu dan food critics internasional.
+                </p>
+            </div>
+
+            <div class="sv-signature-grid">
+                <div class="sv-signature-card sv-reveal">
+                    <div class="sv-signature-img">
+                        <span class="sv-signature-badge"><i class="fas fa-crown"></i> #1 Best Seller</span>
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="sv-signature-content">
+                        <div class="rating">★★★★★ <span>(482 reviews)</span></div>
+                        <h3>Rendang Wagyu A5</h3>
+                        <p>Potongan wagyu A5 premium dimasak 8 jam dalam bumbu rendang Minang otentik — meleleh di mulut dengan ledakan rempah yang kompleks.</p>
+                        <div class="sv-signature-foot">
+                            <div class="price">Rp 385K <small>/ porsi</small></div>
+                            <a href="#reservation" class="sv-btn sv-btn-primary" style="padding: 10px 18px; font-size: 12px;">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sv-signature-card sv-reveal sv-reveal-delay-1">
+                    <div class="sv-signature-img">
+                        <span class="sv-signature-badge"><i class="fas fa-heart"></i> Most Loved</span>
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <div class="sv-signature-content">
+                        <div class="rating">★★★★★ <span>(356 reviews)</span></div>
+                        <h3>Ayam Betutu Gilimanuk</h3>
+                        <p>Ayam kampung utuh dibalut base genep khas Bali, dibungkus daun pisang, dipanggang perlahan 6 jam — daging super empuk dan kaya rasa.</p>
+                        <div class="sv-signature-foot">
+                            <div class="price">Rp 225K <small>/ ekor</small></div>
+                            <a href="#reservation" class="sv-btn sv-btn-primary" style="padding: 10px 18px; font-size: 12px;">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sv-signature-card sv-reveal sv-reveal-delay-2">
+                    <div class="sv-signature-img">
+                        <span class="sv-signature-badge"><i class="fas fa-award"></i> Award Winner</span>
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <div class="sv-signature-content">
+                        <div class="rating">★★★★★ <span>(289 reviews)</span></div>
+                        <h3>Klepon Lava Cake</h3>
+                        <p>Fusion dessert legendaris: chocolate lava cake dengan rasa klepon — pandan wangi, kelapa muda, dan lelehan gula Jawa cair di dalam.</p>
+                        <div class="sv-signature-foot">
+                            <div class="price">Rp 85K <small>/ porsi</small></div>
+                            <a href="#reservation" class="sv-btn sv-btn-primary" style="padding: 10px 18px; font-size: 12px;">Pesan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CHEF ===== -->
+    <section class="sv-section sv-chef" id="chef">
+        <div class="container">
+            <div class="sv-chef-grid">
+                <div class="sv-chef-visual sv-reveal">
+                    <div class="sv-chef-img">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="sv-chef-quote">
+                        <div class="quote-icon">"</div>
+                        <p>Memasak adalah cara saya bercerita. Setiap hidangan adalah kisah tentang rumah, keluarga, dan tanah air.</p>
+                        <div class="author">— Chef Arya Wijaya</div>
+                    </div>
+                </div>
+
+                <div class="sv-chef-content sv-reveal">
+                    <div class="sv-section-tag">Chef Kami</div>
+                    <h2 class="sv-section-title">
+                        Bertemu dengan<br>
+                        <em>Chef Arya Wijaya</em>
+                    </h2>
+                    <p class="sv-section-desc">
+                        Lulusan Le Cordon Bleu Paris dan berpengalaman 15+ tahun di dapur internasional, Chef Arya kembali ke Indonesia dengan satu misi: mengangkat kuliner Nusantara ke panggung dunia.
+                    </p>
+                    <p class="sv-section-desc">
+                        Dengan filosofi <em>"respect the ingredient, honor the tradition, surprise the palate"</em>, setiap ciptaan Chef Arya adalah harmoni antara warisan dan inovasi.
+                    </p>
+
+                    <div class="sv-chef-achievements">
+                        <div class="sv-achievement">
+                            <div class="icon"><i class="fas fa-award"></i></div>
+                            <div>
+                                <h4>Michelin Guide 2024</h4>
+                                <p>Recommended Restaurant</p>
+                            </div>
+                        </div>
+                        <div class="sv-achievement">
+                            <div class="icon"><i class="fas fa-trophy"></i></div>
+                            <div>
+                                <h4>Best Chef Indonesia</h4>
+                                <p>Indonesia Culinary Awards 2023</p>
+                            </div>
+                        </div>
+                        <div class="sv-achievement">
+                            <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div>
+                                <h4>Le Cordon Bleu Paris</h4>
+                                <p>Grand Diplôme Cuisine</p>
+                            </div>
+                        </div>
+                        <div class="sv-achievement">
+                            <div class="icon"><i class="fas fa-book"></i></div>
+                            <div>
+                                <h4>2 Buku Best Seller</h4>
+                                <p>"Rasa Nusantara" (2022)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#menu" class="sv-btn sv-btn-primary">
+                        Cicipi Karya Chef Arya <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="sv-section sv-gallery" id="gallery">
+        <div class="container">
+            <div class="sv-gallery-header sv-reveal">
+                <div class="sv-section-tag center">Galeri</div>
+                <h2 class="sv-section-title">Momen <em>Indah</em> di SAVARA</h2>
+                <p class="sv-section-desc" style="margin: 0 auto;">
+                    Intip suasana hangat restoran kami dan karya seni kuliner dari dapur SAVARA.
+                </p>
+            </div>
+
+            <div class="sv-gallery-grid">
+                <div class="sv-gallery-item sv-reveal">
+                    <i class="fas fa-utensils"></i>
+                    <div class="overlay">
+                        <h4>Interior Utama</h4>
+                        <p>Indonesian contemporary dining</p>
+                    </div>
+                </div>
+                <div class="sv-gallery-item sv-reveal sv-reveal-delay-1">
+                    <i class="fas fa-fire"></i>
+                    <div class="overlay">
+                        <h4>Open Kitchen</h4>
+                        <p>Lihat chef kami beraksi</p>
+                    </div>
+                </div>
+                <div class="sv-gallery-item sv-reveal sv-reveal-delay-2">
+                    <i class="fas fa-leaf"></i>
+                    <div class="overlay">
+                        <h4>Garden Area</h4>
+                        <p>Suasana outdoor yang asri</p>
+                    </div>
+                </div>
+                <div class="sv-gallery-item sv-reveal">
+                    <i class="fas fa-wine-glass"></i>
+                    <div class="overlay">
+                        <h4>Private Room</h4>
+                        <p>Untuk acara eksklusif</p>
+                    </div>
+                </div>
+                <div class="sv-gallery-item sv-reveal sv-reveal-delay-1">
+                    <i class="fas fa-mug-hot"></i>
+                    <div class="overlay">
+                        <h4>Coffee Bar</h4>
+                        <p>Single origin Nusantara</p>
+                    </div>
+                </div>
+                <div class="sv-gallery-item sv-reveal sv-reveal-delay-2">
+                    <i class="fas fa-ice-cream"></i>
+                    <div class="overlay">
+                        <h4>Dessert Station</h4>
+                        <p>Surga para pecinta manis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sv-gallery-cta sv-reveal">
+                <a href="https://instagram.com/savara.id" target="_blank" class="sv-btn sv-btn-outline">
+                    <i class="fab fa-instagram"></i> Follow di Instagram
+                </a>
+                <a href="#reservation" class="sv-btn sv-btn-primary" style="margin-left: 10px;">
+                    Kunjungi Kami <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESERVATION ===== -->
+    <section class="sv-section sv-reservation" id="reservation">
+        <div class="container">
+            <div class="sv-reservation-grid">
+                <div class="sv-reservation-info sv-reveal">
+                    <div class="sv-section-tag">Reservasi</div>
+                    <h2 class="sv-section-title">
+                        Pesan <em>Meja Anda</em><br>
+                        Sekarang
+                    </h2>
+                    <p class="sv-section-desc">
+                        Amankan meja Anda untuk pengalaman kuliner tak terlupakan. Tim kami akan menghubungi Anda untuk konfirmasi dalam 1 jam.
+                    </p>
+
+                    <div class="sv-reservation-info-list">
+                        <div class="sv-reservation-info-item">
+                            <div class="icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h4>Respon Cepat</h4>
+                                <p>Konfirmasi dalam 1 jam kerja</p>
+                            </div>
+                        </div>
+                        <div class="sv-reservation-info-item">
+                            <div class="icon"><i class="fas fa-users"></i></div>
+                            <div>
+                                <h4>Fleksibel</h4>
+                                <p>2 - 100 tamu (private events tersedia)</p>
+                            </div>
+                        </div>
+                        <div class="sv-reservation-info-item">
+                            <div class="icon"><i class="fas fa-credit-card"></i></div>
+                            <div>
+                                <h4>Tanpa DP</h4>
+                                <p>Reservasi gratis untuk grup < 10 orang</p>
+                            </div>
+                        </div>
+                        <div class="sv-reservation-info-item">
+                            <div class="icon"><i class="fas fa-birthday-cake"></i></div>
+                            <div>
+                                <h4>Special Occasion</h4>
+                                <p>Ulang tahun, anniversary, meeting, dll.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="tel:+62217890123" class="sv-btn sv-btn-ghost">
+                        <i class="fas fa-phone"></i> Atau Telepon Langsung
+                    </a>
+                </div>
+
+                <form class="sv-reservation-form sv-reveal" id="svReservationForm" onsubmit="return handleReservation(event)">
+                    <h3>Form Reservasi</h3>
+                    <p>Isi data di bawah ini dan kami akan segera menghubungi Anda.</p>
+
+                    <div class="sv-form-row">
+                        <div class="sv-form-field">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="rName" placeholder="Nama Anda" required>
+                        </div>
+                        <div class="sv-form-field">
+                            <label>No. WhatsApp *</label>
+                            <input type="tel" id="rPhone" placeholder="08xxxxxxxxxx" required>
+                        </div>
+                    </div>
+
+                    <div class="sv-form-row">
+                        <div class="sv-form-field">
+                            <label>Tanggal *</label>
+                            <input type="date" id="rDate" required>
+                        </div>
+                        <div class="sv-form-field">
+                            <label>Jam *</label>
+                            <select id="rTime" required>
+                                <option value="">Pilih jam...</option>
+                                <option>11:00</option>
+                                <option>12:00</option>
+                                <option>13:00</option>
+                                <option>14:00</option>
+                                <option>17:00</option>
+                                <option>18:00</option>
+                                <option>19:00</option>
+                                <option>20:00</option>
+                                <option>21:00</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="sv-form-row">
+                        <div class="sv-form-field">
+                            <label>Jumlah Tamu *</label>
+                            <select id="rGuests" required>
+                                <option value="">Pilih...</option>
+                                <option>2 Orang</option>
+                                <option>3-4 Orang</option>
+                                <option>5-6 Orang</option>
+                                <option>7-10 Orang</option>
+                                <option>11-20 Orang</option>
+                                <option>20+ Orang</option>
+                            </select>
+                        </div>
+                        <div class="sv-form-field">
+                            <label>Area *</label>
+                            <select id="rArea" required>
+                                <option value="">Pilih area...</option>
+                                <option>Indoor Main Hall</option>
+                                <option>Indoor Private Room</option>
+                                <option>Garden Area</option>
+                                <option>Bar Counter</option>
+                                <option>VIP Room</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="sv-form-field">
+                        <label>Occasion</label>
+                        <select id="rOccasion">
+                            <option value="Regular">Regular Dining</option>
+                            <option>Ulang Tahun</option>
+                            <option>Anniversary</option>
+                            <option>Business Meeting</option>
+                            <option>Date Night</option>
+                            <option>Family Gathering</option>
+                            <option>Lainnya</option>
+                        </select>
+                    </div>
+
+                    <div class="sv-form-field">
+                        <label>Permintaan Khusus</label>
+                        <textarea id="rNotes" placeholder="Alergi makanan, dekorasi, high chair, dll."></textarea>
+                    </div>
+
+                    <button type="submit" class="sv-btn sv-btn-primary">
+                        <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="sv-section sv-testimonials" id="testimonials">
+        <div class="container">
+            <div class="sv-testimonials-header sv-reveal">
+                <div class="sv-section-tag center">Kata Mereka</div>
+                <h2 class="sv-section-title">Cerita <em>Tamu Kami</em></h2>
+                <p class="sv-section-desc">
+                    Ribuan tamu telah merasakan pengalaman SAVARA. Inilah beberapa cerita mereka.
+                </p>
+            </div>
+
+            <div class="sv-testimonials-grid">
+                <div class="sv-testimonial sv-reveal">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="text">Rendang Wagyu-nya luar biasa! Bumbu rendang otentik tapi dagingnya super lembut. Suasananya juga hangat dan service-nya excellent. Pasti balik lagi!</p>
+                    <div class="sv-testimonial-foot">
+                        <div class="sv-testimonial-avatar">R</div>
+                        <div>
+                            <h4>Rina Kusuma</h4>
+                            <p>Food Blogger · @rinakusuma.eats</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sv-testimonial sv-reveal sv-reveal-delay-1">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="text">Tempat favorit untuk business dinner. Private room-nya nyaman, menu tasting-nya bikin klien saya impressed. Worth every rupiah. Highly recommended!</p>
+                    <div class="sv-testimonial-foot">
+                        <div class="sv-testimonial-avatar">D</div>
+                        <div>
+                            <h4>Dimas Prakoso</h4>
+                            <p>CEO · Tech Startup</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sv-testimonial sv-reveal sv-reveal-delay-2">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="text">Rayain anniversary di sini, dapet surprise cake dari chef. Klepon Lava Cake-nya juara! The best Indonesian fine dining di Jakarta, no debat.</p>
+                    <div class="sv-testimonial-foot">
+                        <div class="sv-testimonial-avatar">M</div>
+                        <div>
+                            <h4>Maya & Andi</h4>
+                            <p>Loyal Guest · Sejak 2018</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EVENTS ===== -->
+    <section class="sv-section sv-events" id="events">
+        <div class="container">
+            <div class="sv-events-header sv-reveal">
+                <div class="sv-section-tag center">Private Events</div>
+                <h2 class="sv-section-title">Rayakan <em>Momen Spesial</em> Anda</h2>
+                <p class="sv-section-desc" style="margin: 0 auto;">
+                    Dari dinner intimate hingga gathering besar, SAVARA siap jadi tuan rumah sempurna untuk acara Anda.
+                </p>
+            </div>
+
+            <div class="sv-events-grid">
+                <div class="sv-event-card sv-reveal">
+                    <div class="sv-event-img">
+                        <span class="sv-event-badge">Most Popular</span>
+                        <span class="sv-event-capacity"><i class="fas fa-users"></i> 8-20 pax</span>
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="sv-event-content">
+                        <h3>Private Birthday Dinner</h3>
+                        <p>Rayakan ulang tahun dengan suasana eksklusif di private room kami, termasuk dekorasi & surprise cake.</p>
+                        <div class="sv-event-features">
+                            <span><i class="fas fa-check"></i> Private Room</span>
+                            <span><i class="fas fa-check"></i> Custom Menu</span>
+                            <span><i class="fas fa-check"></i> Decoration</span>
+                            <span><i class="fas fa-check"></i> Cake</span>
+                        </div>
+                        <div class="sv-event-foot">
+                            <div class="price">Rp 500K <small>/ orang</small></div>
+                            <a href="#reservation" class="sv-btn sv-btn-primary" style="padding: 10px 18px; font-size: 12px;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sv-event-card sv-reveal sv-reveal-delay-1">
+                    <div class="sv-event-img">
+                        <span class="sv-event-badge">Corporate</span>
+                        <span class="sv-event-capacity"><i class="fas fa-users"></i> 15-50 pax</span>
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="sv-event-content">
+                        <h3>Business Meeting Package</h3>
+                        <p>Paket meeting lengkap dengan projector, sound system, dan coffee break untuk meeting profesional.</p>
+                        <div class="sv-event-features">
+                            <span><i class="fas fa-check"></i> Projector</span>
+                            <span><i class="fas fa-check"></i> WiFi Fast</span>
+                            <span><i class="fas fa-check"></i> Coffee Break</span>
+                            <span><i class="fas fa-check"></i> Lunch Set</span>
+                        </div>
+                        <div class="sv-event-foot">
+                            <div class="price">Rp 350K <small>/ orang</small></div>
+                            <a href="#reservation" class="sv-btn sv-btn-primary" style="padding: 10px 18px; font-size: 12px;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sv-event-card sv-reveal sv-reveal-delay-2">
+                    <div class="sv-event-img">
+                        <span class="sv-event-badge">Intimate</span>
+                        <span class="sv-event-capacity"><i class="fas fa-users"></i> 2-6 pax</span>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="sv-event-content">
+                        <h3>Romantic Dinner</h3>
+                        <p>Dinner romantis 5-course untuk berdua dengan setup khusus, bunga, dan wine pairing premium.</p>
+                        <div class="sv-event-features">
+                            <span><i class="fas fa-check"></i> 5-Course</span>
+                            <span><i class="fas fa-check"></i> Wine Pairing</span>
+                            <span><i class="fas fa-check"></i> Flower Setup</span>
+                            <span><i class="fas fa-check"></i> Live Music</span>
+                        </div>
+                        <div class="sv-event-foot">
+                            <div class="price">Rp 1.5Jt <small>/ couple</small></div>
+                            <a href="#reservation" class="sv-btn sv-btn-primary" style="padding: 10px 18px; font-size: 12px;">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG ===== -->
+    <section class="sv-section sv-blog" id="blog">
+        <div class="container">
+            <div class="sv-blog-header">
+                <div class="sv-reveal">
+                    <div class="sv-section-tag">Blog & Insights</div>
+                    <h2 class="sv-section-title">Dari <em>Dapur</em> SAVARA</h2>
+                    <p class="sv-section-desc">Resep, cerita kuliner, tips memasak, dan update terbaru dari tim kami.</p>
+                </div>
+                <a href="#blog" class="sv-btn sv-btn-outline sv-reveal">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="sv-blog-grid">
+                <article class="sv-blog-card featured sv-reveal">
+                    <div class="sv-blog-img">
+                        <span class="sv-blog-category">Resep</span>
+                        <i class="fas fa-mortar-pestle"></i>
+                    </div>
+                    <div class="sv-blog-content">
+                        <div class="sv-blog-meta">
+                            <span><i class="far fa-calendar"></i> 15 Jun 2026</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                            <span><i class="far fa-user"></i> Chef Arya</span>
+                        </div>
+                        <h3>Rahasia Rendang Autentik: Dari Rempah Hingga 8 Jam Memasak</h3>
+                        <p>Chef Arya membagikan teknik rahasia memasak rendang otentik Minang — mulai dari pemilihan kelapa, penggilingan rempah tradisional, hingga kesabaran 8 jam di atas api kecil...</p>
+                        <a href="#" class="sv-blog-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="sv-blog-card sv-reveal sv-reveal-delay-1">
+                    <div class="sv-blog-img">
+                        <span class="sv-blog-category">Story</span>
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="sv-blog-content">
+                        <div class="sv-blog-meta">
+                            <span><i class="far fa-calendar"></i> 8 Jun 2026</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3>Perjalanan Rempah: Dari Maluku ke Meja Makan Anda</h3>
+                        <p>Kisah para petani rempah lokal yang menjadi mitra setia SAVARA sejak 2015.</p>
+                        <a href="#" class="sv-blog-link">Baca <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="sv-blog-card sv-reveal sv-reveal-delay-2">
+                    <div class="sv-blog-img">
+                        <span class="sv-blog-category">Tips</span>
+                        <i class="fas fa-wine-glass"></i>
+                    </div>
+                    <div class="sv-blog-content">
+                        <div class="sv-blog-meta">
+                            <span><i class="far fa-calendar"></i> 1 Jun 2026</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h3>5 Pairing Teh Tradisional dengan Hidangan Nusantara</h3>
+                        <p>Rekomendasi teh yang cocok untuk setiap jenis masakan Indonesia.</p>
+                        <a href="#" class="sv-blog-link">Baca <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LOCATION ===== -->
+    <section class="sv-section sv-location" id="location">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;" class="sv-reveal">
+                <div class="sv-section-tag center">Lokasi & Jam Buka</div>
+                <h2 class="sv-section-title">Kunjungi <em>SAVARA</em></h2>
+                <p class="sv-section-desc" style="margin: 0 auto;">Kami menantikan kehadiran Anda di restoran kami.</p>
+            </div>
+
+            <div class="sv-location-grid">
+                <div class="sv-location-map sv-reveal">
+                    <div class="sv-map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h4>SAVARA Restaurant</h4>
+                        <p>Jl. Kemang Raya No. 88, Jakarta Selatan 12730</p>
+                        <a href="https://maps.google.com/?q=Kemang+Raya+88+Jakarta" target="_blank" class="sv-btn sv-btn-primary">
+                            <i class="fas fa-directions"></i> Buka di Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sv-location-info sv-reveal">
+                    <div class="sv-location-card">
+                        <div class="icon-row">
+                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <h4>Alamat Lengkap</h4>
+                        </div>
+                        <p>Jl. Kemang Raya No. 88<br>Bangka, Mampang Prapatan<br>Jakarta Selatan 12730</p>
+                    </div>
+
+                    <div class="sv-location-card">
+                        <div class="icon-row">
+                            <div class="icon"><i class="far fa-clock"></i></div>
+                            <h4>Jam Operasional</h4>
+                        </div>
+                        <div class="sv-hours-grid">
+                            <div class="sv-hours-row"><span class="day">Senin - Kamis</span><span class="time">11:00 - 22:00</span></div>
+                            <div class="sv-hours-row"><span class="day">Jumat - Sabtu</span><span class="time">11:00 - 23:00</span></div>
+                            <div class="sv-hours-row"><span class="day">Minggu</span><span class="time">10:00 - 22:00</span></div>
+                            <div class="sv-hours-row closed"><span class="day">Hari Libur Nasional</span><span class="time">By Reservation</span></div>
+                        </div>
+                    </div>
+
+                    <div class="sv-location-card">
+                        <div class="icon-row">
+                            <div class="icon"><i class="fas fa-phone"></i></div>
+                            <h4>Kontak Langsung</h4>
+                        </div>
+                        <p>
+                            📞 <a href="tel:+62217890123" style="color: var(--terra); text-decoration: none; font-weight: 600;">+62 21 7890 1234</a><br>
+                            💬 <a href="https://wa.me/6281234567890" style="color: var(--terra); text-decoration: none; font-weight: 600;">+62 812 3456 7890</a><br>
+                            ✉️ <a href="mailto:hello@savara.id" style="color: var(--terra); text-decoration: none; font-weight: 600;">hello@savara.id</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section class="sv-newsletter">
+        <div class="sv-newsletter-inner">
+            <h2>Dapatkan <em>Penawaran Eksklusif</em><br>& Update Menu Terbaru</h2>
+            <p>Bergabunglah dengan 15,000+ subscribers kami dan nikmati diskon 10% untuk kunjungan pertama Anda!</p>
+            <form class="sv-newsletter-form" onsubmit="return handleNewsletter(event)">
+                <input type="email" placeholder="Email Anda..." required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="sv-footer">
+        <div class="sv-footer-grid">
+            <div class="sv-footer-brand">
+                <a href="#home" class="sv-logo">
+                    <div class="sv-logo-mark">S</div>
+                    <div class="sv-logo-text">
+                        <h1>SAVARA</h1>
+                        <p>Indonesian Dining</p>
+                    </div>
+                </a>
+                <p>Restoran modern Indonesia yang menyajikan warisan kuliner Nusantara dengan sentuhan kontemporer. Setiap hidangan adalah perjalanan rasa yang tak terlupakan.</p>
+                <div class="sv-footer-socials">
+                    <a href="https://instagram.com/savara.id" class="sv-footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@savaraid" class="sv-footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://facebook.com/savaraid" class="sv-footer-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://youtube.com/@savaraid" class="sv-footer-social" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/6281234567890" class="sv-footer-social" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="sv-footer-col">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                    <li><a href="#story"><i class="fas fa-chevron-right"></i> Cerita Kami</a></li>
+                    <li><a href="#menu"><i class="fas fa-chevron-right"></i> Menu</a></li>
+                    <li><a href="#signature"><i class="fas fa-chevron-right"></i> Signature Dishes</a></li>
+                    <li><a href="#chef"><i class="fas fa-chevron-right"></i> Chef Kami</a></li>
+                    <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Galeri</a></li>
+                </ul>
+            </div>
+
+            <div class="sv-footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#reservation"><i class="fas fa-chevron-right"></i> Reservasi</a></li>
+                    <li><a href="#events"><i class="fas fa-chevron-right"></i> Private Events</a></li>
+                    <li><a href="#events"><i class="fas fa-chevron-right"></i> Catering</a></li>
+                    <li><a href="#blog"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    <li><a href="#location"><i class="fas fa-chevron-right"></i> Lokasi</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Gift Voucher</a></li>
+                </ul>
+            </div>
+
+            <div class="sv-footer-col">
+                <h4>Kontak</h4>
+                <div class="sv-footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Jl. Kemang Raya No. 88<br>Jakarta Selatan 12730</span>
+                </div>
+                <div class="sv-footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+62 21 7890 1234</span>
+                </div>
+                <div class="sv-footer-contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+62 812 3456 7890</span>
+                </div>
+                <div class="sv-footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>hello@savara.id</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sv-footer-bottom">
+            <p>&copy; 2026 SAVARA Restaurant. All rights reserved. Made with ❤️ in Jakarta.</p>
+            <div class="sv-footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/6281234567890" class="sv-wa-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#home" class="sv-back-top" id="svBackTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+<script>
+// ===== NAVBAR SCROLL =====
+const svNavbar = document.getElementById('svNavbar');
+const svBackTop = document.getElementById('svBackTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        svNavbar.classList.add('scrolled');
+        svBackTop.classList.add('visible');
+    } else {
+        svNavbar.classList.remove('scrolled');
+        svBackTop.classList.remove('visible');
+    }
+});
+
+// ===== MOBILE MENU =====
+function toggleMobileMenu() {
+    document.getElementById('svMobileMenu').classList.toggle('active');
+}
+
+// ===== REVEAL ANIMATION =====
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.sv-reveal').forEach(el => revealObserver.observe(el));
+
+// ===== ANIMATED COUNTER =====
+function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-count'));
+    const duration = 2000;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        el.textContent = Math.floor(current) + '+';
+    }, duration / steps);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+            entry.target.dataset.counted = 'true';
+            animateCounter(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+// ===== MENU FILTER =====
+document.querySelectorAll('.sv-filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.sv-filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filter = this.dataset.filter;
+        document.querySelectorAll('.sv-menu-item').forEach(item => {
+            const categories = item.dataset.category || '';
+            if (filter === 'all' || categories.includes(filter)) {
+                item.style.display = 'grid';
+                item.style.opacity = '0';
+                setTimeout(() => { item.style.opacity = '1'; }, 50);
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+
+// ===== LANGUAGE SWITCH =====
+document.querySelectorAll('.sv-lang button').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.sv-lang button').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+            e.preventDefault();
+            window.scrollTo({
+                top: target.getBoundingClientRect().top + window.pageYOffset - 85,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ===== RESERVATION FORM =====
+function handleReservation(e) {
+    e.preventDefault();
+    const name = document.getElementById('rName').value.trim();
+    const phone = document.getElementById('rPhone').value.trim();
+    const date = document.getElementById('rDate').value;
+    const time = document.getElementById('rTime').value;
+    const guests = document.getElementById('rGuests').value;
+    const area = document.getElementById('rArea').value;
+    const occasion = document.getElementById('rOccasion').value;
+    const notes = document.getElementById('rNotes').value.trim();
+
+    if (!name || !phone || !date || !time || !guests || !area) {
+        alert('Mohon lengkapi semua field yang wajib diisi (*)');
+        return false;
+    }
+
+    // Format date
+    const dateObj = new Date(date);
+    const formattedDate = dateObj.toLocaleDateString('id-ID', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    let msg = `🍽️ *RESERVASI BARU - SAVARA RESTAURANT*\n`;
+    msg += `━━━━━━━━━━━━━━━━━━\n\n`;
+    msg += `👤 *Nama:* ${name}\n`;
+    msg += `📱 *WhatsApp:* ${phone}\n\n`;
+    msg += `📅 *Tanggal:* ${formattedDate}\n`;
+    msg += `🕐 *Jam:* ${time} WIB\n`;
+    msg += `👥 *Jumlah Tamu:* ${guests}\n`;
+    msg += `🪑 *Area:* ${area}\n`;
+    msg += `🎉 *Occasion:* ${occasion}\n`;
+    if (notes) msg += `\n📝 *Catatan Khusus:*\n${notes}\n`;
+    msg += `\n━━━━━━━━━━━━━━━━━━\n`;
+    msg += `_Dikirim dari website savara.id_`;
+
+    const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
+
+    alert('✅ Reservasi Anda sedang diproses!\n\nAnda akan diarahkan ke WhatsApp untuk konfirmasi. Tim kami akan menghubungi Anda dalam 1 jam.');
+    document.getElementById('svReservationForm').reset();
+    return false;
+}
+
+// ===== NEWSLETTER =====
+function handleNewsletter(e) {
+    e.preventDefault();
+    alert('🎉 Terima kasih telah subscribe!\n\nCek email Anda untuk mendapatkan kode diskon 10% untuk kunjungan pertama.');
+    e.target.reset();
+    return false;
+}
+
+// ===== SET MIN DATE FOR RESERVATION =====
+document.getElementById('rDate').min = new Date().toISOString().split('T')[0];
+</script>
+
+</body>
+</html>
