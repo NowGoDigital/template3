@@ -2297,6 +2297,506 @@
             font-weight: 600;
             display: block;
         }
+
+    /* ============================================
+   ORDER ONLINE SECTION
+   ============================================ */
+.sv-order {
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+}
+
+.sv-order::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(212,165,116,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.sv-order::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(193,67,46,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.sv-order-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sv-order-header .sv-section-desc {
+    margin: 0 auto;
+}
+
+/* --- Promo Banner --- */
+.sv-order-promo {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(135deg, var(--brown) 0%, #3d2318 50%, var(--terra) 100%);
+    border-radius: 20px;
+    padding: 32px 40px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(44,24,16,0.2);
+}
+
+.sv-order-promo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(212,165,116,0.15));
+    pointer-events: none;
+}
+
+.sv-promo-icon {
+    font-size: 48px;
+    flex-shrink: 0;
+    animation: svBounceGentle 2s ease-in-out infinite;
+}
+
+@keyframes svBounceGentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.sv-promo-content {
+    flex: 1;
+}
+
+.sv-promo-content h3 {
+    color: var(--gold);
+    font-family: var(--font-heading, 'Playfair Display', serif);
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.sv-promo-content p {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.sv-promo-content strong {
+    color: var(--gold);
+}
+
+.sv-btn-promo-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: white !important;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.sv-btn-promo-wa:hover {
+    background: #1ebe57;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(37,211,102,0.4);
+}
+
+/* --- Platform Cards Grid --- */
+.sv-order-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 60px;
+}
+
+.sv-platform-card {
+    position: relative;
+    perspective: 1000px;
+}
+
+.sv-platform-inner {
+    background: var(--warm-white);
+    border-radius: 24px;
+    padding: 36px 30px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid transparent;
+    box-shadow: 0 4px 20px rgba(44,24,16,0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.sv-platform-card:hover .sv-platform-inner {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(44,24,16,0.12);
+}
+
+.sv-platform-card[data-platform="gofood"]:hover .sv-platform-inner { border-color: #00AA13; }
+.sv-platform-card[data-platform="grabfood"]:hover .sv-platform-inner { border-color: #00B14F; }
+.sv-platform-card[data-platform="shopeefood"]:hover .sv-platform-inner { border-color: #EE4D2D; }
+
+/* --- Ribbon Badge --- */
+.sv-platform-ribbon {
+    position: absolute;
+    top: 18px;
+    right: -32px;
+    background: var(--terra);
+    color: white;
+    padding: 5px 42px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transform: rotate(45deg);
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(193,67,46,0.3);
+}
+
+/* --- Platform Header --- */
+.sv-platform-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(44,24,16,0.08);
+}
+
+.sv-platform-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sv-platform-logo.gofood { background: linear-gradient(135deg, #00AA13, #008A0F); }
+.sv-platform-logo.grabfood { background: linear-gradient(135deg, #00B14F, #009040); }
+.sv-platform-logo.shopeefood { background: linear-gradient(135deg, #EE4D2D, #D73218); }
+
+.sv-platform-logo svg {
+    width: 48px;
+    height: 48px;
+}
+
+.sv-platform-name h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--brown);
+    margin-bottom: 2px;
+}
+
+.sv-platform-name span {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.sv-platform-rating {
+    margin-left: auto;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--brown);
+    background: rgba(212,165,116,0.15);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.sv-platform-rating .star {
+    color: #F5A623;
+}
+
+/* --- Platform Perks --- */
+.sv-platform-perks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    flex: 1;
+}
+
+.sv-platform-perks li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    color: #555;
+    border-bottom: 1px dashed rgba(44,24,16,0.06);
+}
+
+.sv-platform-perks li:last-child {
+    border-bottom: none;
+}
+
+.sv-perk-icon {
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* --- Platform CTA Buttons --- */
+.sv-platform-cta {
+    margin-top: auto;
+}
+
+.sv-btn-platform {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.sv-btn-platform.gofood {
+    background: linear-gradient(135deg, #00AA13, #008A0F);
+    box-shadow: 0 4px 15px rgba(0,170,19,0.25);
+}
+.sv-btn-platform.gofood:hover {
+    box-shadow: 0 6px 25px rgba(0,170,19,0.35);
+    transform: translateY(-2px);
+}
+
+.sv-btn-platform.grabfood {
+    background: linear-gradient(135deg, #00B14F, #009040);
+    box-shadow: 0 4px 15px rgba(0,177,79,0.25);
+}
+.sv-btn-platform.grabfood:hover {
+    box-shadow: 0 6px 25px rgba(0,177,79,0.35);
+    transform: translateY(-2px);
+}
+
+.sv-btn-platform.shopeefood {
+    background: linear-gradient(135deg, #EE4D2D, #D73218);
+    box-shadow: 0 4px 15px rgba(238,77,45,0.25);
+}
+.sv-btn-platform.shopeefood:hover {
+    box-shadow: 0 6px 25px rgba(238,77,45,0.35);
+    transform: translateY(-2px);
+}
+
+/* --- How to Order --- */
+.sv-order-howto {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.sv-order-howto h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--brown);
+    margin-bottom: 36px;
+}
+
+.sv-order-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sv-order-step {
+    text-align: center;
+    padding: 24px 20px;
+    background: var(--warm-white);
+    border-radius: 20px;
+    width: 180px;
+    box-shadow: 0 4px 15px rgba(44,24,16,0.05);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.sv-order-step:hover {
+    transform: translateY(-4px);
+}
+
+.sv-step-num {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
+    background: var(--terra);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 3px 10px rgba(193,67,46,0.3);
+}
+
+.sv-step-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    margin-top: 8px;
+}
+
+.sv-order-step p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.sv-step-arrow {
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* --- Coverage Area --- */
+.sv-order-coverage {
+    text-align: center;
+    padding: 40px;
+    background: var(--warm-white);
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(44,24,16,0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.sv-order-coverage h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--brown);
+    margin-bottom: 20px;
+}
+
+.sv-coverage-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.sv-coverage-tag {
+    background: rgba(212,165,116,0.15);
+    color: var(--brown);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(212,165,116,0.3);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.sv-coverage-tag:hover {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+}
+
+.sv-coverage-note {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+    margin: 0;
+}
+
+/* --- Order Online Responsive --- */
+@media (max-width: 1024px) {
+    .sv-order-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .sv-order-grid .sv-platform-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .sv-order-promo {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 24px;
+        gap: 16px;
+    }
+
+    .sv-promo-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .sv-order-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sv-order-grid .sv-platform-card:last-child {
+        max-width: 100%;
+    }
+
+    .sv-order-steps {
+        flex-direction: column;
+    }
+
+    .sv-order-step {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .sv-step-arrow {
+        transform: rotate(90deg);
+        font-size: 1.2rem;
+    }
+
+    .sv-order-coverage {
+        padding: 28px 20px;
+    }
+
+    .sv-coverage-tags {
+        gap: 8px;
+    }
+
+    .sv-coverage-tag {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+}
+
+        
     </style>
 </head>
 <body>
@@ -2341,6 +2841,7 @@
                 <li><a href="#gallery">Galeri</a></li>
                 <li><a href="#events">Events</a></li>
                 <li><a href="#blog">Blog</a></li>
+                <li><a href="#order-online">Order</a></li>
                 <li><a href="#location">Lokasi</a></li>
             </ul>
 
@@ -2364,6 +2865,7 @@
             <li><a href="#gallery" onclick="toggleMobileMenu()">Galeri</a></li>
             <li><a href="#events" onclick="toggleMobileMenu()">Private Events</a></li>
             <li><a href="#blog" onclick="toggleMobileMenu()">Blog</a></li>
+            <li><a href="#order-online" onclick="toggleMobileMenu()">Order Online</a></li>
             <li><a href="#location" onclick="toggleMobileMenu()">Lokasi</a></li>
             <li><a href="#reservation" onclick="toggleMobileMenu()" style="color: var(--terra); font-weight: 700;">Reservasi Sekarang</a></li>
         </ul>
@@ -2941,6 +3443,185 @@
         </div>
     </section>
 
+        <!-- ===== ORDER ONLINE ===== -->
+    <section class="sv-section sv-order" id="order-online">
+        <div class="container">
+            <div class="sv-order-header sv-reveal">
+                <div class="sv-section-tag center">🛵 Delivery & Takeaway</div>
+                <h2 class="sv-section-title">Pesan Online, <em>Nikmati di Rumah</em></h2>
+                <p class="sv-section-desc">
+                    Cita rasa autentik SAVARA kini bisa Anda nikmati di mana saja. Pesan langsung melalui platform favorit Anda atau hubungi kami untuk delivery tanpa biaya platform.
+                </p>
+            </div>
+
+            <!-- Promo Banner -->
+            <div class="sv-order-promo sv-reveal">
+                <div class="sv-promo-icon">🎉</div>
+                <div class="sv-promo-content">
+                    <h3>Pesan Langsung = Lebih Hemat!</h3>
+                    <p>Pesan via WhatsApp & dapatkan <strong>diskon 15%</strong> + gratis ongkir untuk radius 5 km. Tanpa biaya platform!</p>
+                </div>
+                <a href="https://wa.me/6281234567890?text=Halo%20SAVARA%2C%20saya%20ingin%20pesan%20untuk%20delivery%20%3A%0A%0A"
+                   class="sv-btn-promo-wa" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp"></i>
+                    Pesan via WhatsApp
+                </a>
+            </div>
+
+            <!-- Platform Cards -->
+            <div class="sv-order-grid">
+                <!-- GoFood -->
+                <div class="sv-platform-card sv-reveal" data-platform="gofood">
+                    <div class="sv-platform-inner">
+                        <div class="sv-platform-head">
+                            <div class="sv-platform-logo gofood">
+                                <svg viewBox="0 0 48 48" fill="none">
+                                    <circle cx="24" cy="24" r="20" fill="white" opacity="0.2"/>
+                                    <text x="24" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="white" font-family="sans-serif">Go</text>
+                                </svg>
+                            </div>
+                            <div class="sv-platform-name">
+                                <h3>GoFood</h3>
+                                <span>by Gojek</span>
+                            </div>
+                            <div class="sv-platform-rating">
+                                <span class="star">★</span> 4.9
+                            </div>
+                        </div>
+                        <ul class="sv-platform-perks">
+                            <li><span class="sv-perk-icon">⚡</span> Estimasi 25–35 menit</li>
+                            <li><span class="sv-perk-icon">🏷️</span> Promo GoFood sering tersedia</li>
+                            <li><span class="sv-perk-icon">🚚</span> Gratis ongkir min. order Rp 50rb</li>
+                            <li><span class="sv-perk-icon">💳</span> Bayar pakai GoPay</li>
+                        </ul>
+                        <div class="sv-platform-cta">
+                            <a href="https://gofood.co.id/restaurant/savara-modern-indonesian-dining-xxxxx"
+                               class="sv-btn-platform gofood" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i>
+                                Pesan di GoFood
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GrabFood -->
+                <div class="sv-platform-card sv-reveal sv-reveal-delay-1" data-platform="grabfood">
+                    <div class="sv-platform-inner">
+                        <div class="sv-platform-ribbon">Populer</div>
+                        <div class="sv-platform-head">
+                            <div class="sv-platform-logo grabfood">
+                                <svg viewBox="0 0 48 48" fill="none">
+                                    <circle cx="24" cy="24" r="20" fill="white" opacity="0.2"/>
+                                    <text x="24" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="white" font-family="sans-serif">Gr</text>
+                                </svg>
+                            </div>
+                            <div class="sv-platform-name">
+                                <h3>GrabFood</h3>
+                                <span>by Grab</span>
+                            </div>
+                            <div class="sv-platform-rating">
+                                <span class="star">★</span> 4.8
+                            </div>
+                        </div>
+                        <ul class="sv-platform-perks">
+                            <li><span class="sv-perk-icon">⚡</span> Estimasi 20–30 menit</li>
+                            <li><span class="sv-perk-icon">🏷️</span> GrabUnlimited cashback s.d 50%</li>
+                            <li><span class="sv-perk-icon">🚚</span> Free delivery untuk GrabUnlimited</li>
+                            <li><span class="sv-perk-icon">💳</span> Bayar pakai OVO / GoPay</li>
+                        </ul>
+                        <div class="sv-platform-cta">
+                            <a href="https://food.grab.com/id/restaurant/savara-modern-indonesian-dining/xxxxx"
+                               class="sv-btn-platform grabfood" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i>
+                                Pesan di GrabFood
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ShopeeFood -->
+                <div class="sv-platform-card sv-reveal sv-reveal-delay-2" data-platform="shopeefood">
+                    <div class="sv-platform-inner">
+                        <div class="sv-platform-head">
+                            <div class="sv-platform-logo shopeefood">
+                                <svg viewBox="0 0 48 48" fill="none">
+                                    <circle cx="24" cy="24" r="20" fill="white" opacity="0.2"/>
+                                    <text x="24" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="white" font-family="sans-serif">Sf</text>
+                                </svg>
+                            </div>
+                            <div class="sv-platform-name">
+                                <h3>ShopeeFood</h3>
+                                <span>by Shopee</span>
+                            </div>
+                            <div class="sv-platform-rating">
+                                <span class="star">★</span> 4.8
+                            </div>
+                        </div>
+                        <ul class="sv-platform-perks">
+                            <li><span class="sv-perk-icon">⚡</span> Estimasi 30–40 menit</li>
+                            <li><span class="sv-perk-icon">🏷️</span> Voucher diskon s.d 60%</li>
+                            <li><span class="sv-perk-icon">🚚</span> Gratis ongkir min. order Rp 30rb</li>
+                            <li><span class="sv-perk-icon">💳</span> Bayar pakai ShopeePay</li>
+                        </ul>
+                        <div class="sv-platform-cta">
+                            <a href="https://food.shopee.co.id/restaurant/savara/xxxxx"
+                               class="sv-btn-platform shopeefood" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i>
+                                Pesan di ShopeeFood
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Order -->
+            <div class="sv-order-howto sv-reveal">
+                <h3>Cara Pesan</h3>
+                <div class="sv-order-steps">
+                    <div class="sv-order-step">
+                        <div class="sv-step-num">1</div>
+                        <div class="sv-step-icon">📱</div>
+                        <p>Pilih platform favorit Anda</p>
+                    </div>
+                    <div class="sv-step-arrow">→</div>
+                    <div class="sv-order-step">
+                        <div class="sv-step-num">2</div>
+                        <div class="sv-step-icon">🍽️</div>
+                        <p>Pilih menu & tambahkan ke keranjang</p>
+                    </div>
+                    <div class="sv-step-arrow">→</div>
+                    <div class="sv-order-step">
+                        <div class="sv-step-num">3</div>
+                        <div class="sv-step-icon">💳</div>
+                        <p>Checkout & bayar</p>
+                    </div>
+                    <div class="sv-step-arrow">→</div>
+                    <div class="sv-order-step">
+                        <div class="sv-step-num">4</div>
+                        <div class="sv-step-icon">🛵</div>
+                        <p>Pesanan diantar ke rumah Anda</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coverage Area -->
+            <div class="sv-order-coverage sv-reveal">
+                <h3>📍 Area Delivery</h3>
+                <div class="sv-coverage-tags">
+                    <span class="sv-coverage-tag">Jakarta Selatan</span>
+                    <span class="sv-coverage-tag">Jakarta Pusat</span>
+                    <span class="sv-coverage-tag">Jakarta Barat</span>
+                    <span class="sv-coverage-tag">Jakarta Timur</span>
+                    <span class="sv-coverage-tag">Jakarta Utara</span>
+                    <span class="sv-coverage-tag">Tangerang (terbatas)</span>
+                    <span class="sv-coverage-tag">Depok (terbatas)</span>
+                    <span class="sv-coverage-tag">Bekasi (terbatas)</span>
+                </div>
+                <p class="sv-coverage-note">* Cakupan area tergantung platform. Untuk area yang tidak tercover, silakan pesan langsung via WhatsApp.</p>
+            </div>
+        </div>
+    </section>
+    
     <!-- ===== RESERVATION ===== -->
     <section class="sv-section sv-reservation" id="reservation">
         <div class="container">
@@ -3388,6 +4069,7 @@
                 <h4>Layanan</h4>
                 <ul>
                     <li><a href="#reservation"><i class="fas fa-chevron-right"></i> Reservasi</a></li>
+                    <li><a href="#order-online"><i class="fas fa-chevron-right"></i> Order Online</a></li>
                     <li><a href="#events"><i class="fas fa-chevron-right"></i> Private Events</a></li>
                     <li><a href="#events"><i class="fas fa-chevron-right"></i> Catering</a></li>
                     <li><a href="#blog"><i class="fas fa-chevron-right"></i> Blog</a></li>
